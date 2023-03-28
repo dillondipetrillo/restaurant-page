@@ -10,6 +10,8 @@ export default function homePage() {
   const homeHeroDiv = document.createElement("div");
 
   // give new DOM elements classes/IDs
+  homeHeroMain.setAttribute("id", "home");
+  homeHeroMain.classList.add("home-section");
   homeHeroSection.setAttribute("id", "hero");
   homeHeroH1.classList.add("hero-title");
   homeHeroImgContainer.classList.add("hero-img-container");

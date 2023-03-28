@@ -26,6 +26,38 @@ navLiHome.textContent = "Home";
 navLiMenu.textContent = "Menu";
 navLiContact.textContent = "Contact";
 
+// add header elements to DOM
+navUl.appendChild(navLiHome);
+navUl.appendChild(navLiMenu);
+navUl.appendChild(navLiContact);
+nav.appendChild(navUl);
+header.appendChild(nav);
+content.appendChild(header);
+
+const checkForActive = () => {
+  navLinks.forEach((link) => {
+    if (
+      link.textContent.toLowerCase() === "home" &&
+      link.classList.contains("active")
+    ) {
+      //
+    } else if (
+      link.textContent.toLowerCase() === "menu" &&
+      link.classList.contains("active")
+    ) {
+      //
+    }
+  });
+};
+
+homePage();
+menu();
+
+const homeSection = document.querySelector("#home");
+const menuSection = document.querySelector("#menu");
+
+checkForActive();
+
 // update nav active class
 function makeActive(e) {
   if (e.target.classList.contains("active")) return;
@@ -38,20 +70,10 @@ function makeActive(e) {
     }
   });
   e.target.classList.add("active");
+  checkForActive();
 }
 
 // give nav items event listeners.
 for (let i = 0; i < navLinks.length; i++) {
   navLinks[i].addEventListener("click", makeActive);
 }
-
-// add header elements to DOM
-navUl.appendChild(navLiHome);
-navUl.appendChild(navLiMenu);
-navUl.appendChild(navLiContact);
-nav.appendChild(navUl);
-header.appendChild(nav);
-content.appendChild(header);
-
-// homePage();
-menu();

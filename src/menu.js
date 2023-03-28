@@ -77,16 +77,30 @@ export default function menu() {
   const appetizers = document.createElement("div");
   const entres = document.createElement("div");
   const desserts = document.createElement("div");
+  const appetizerTitle = document.createElement("h2");
+  const entreTitle = document.createElement("h2");
+  const dessertTitle = document.createElement("h2");
+
+  menuH1.textContent = "Menu";
+  appetizerTitle.textContent = "Appetizers";
+  entreTitle.textContent = "Entres";
+  dessertTitle.textContent = "Desserts";
+
+  appetizers.appendChild(appetizerTitle);
+  entres.appendChild(entreTitle);
+  desserts.appendChild(dessertTitle);
 
   // loop through menu items and create/append them in correct div category
   for (let menuItem of menuItems) {
     const item = document.createElement("div");
-    const itemTitle = document.createElement("h2");
+    const menuContentContainer = document.createElement("div");
+    const itemTitle = document.createElement("h3");
     const itemImgContainer = document.createElement("div");
     const itemImg = document.createElement("img");
     const itemPrice = document.createElement("span");
 
     item.classList.add("menu-item");
+    menuContentContainer.classList.add("menu-item-content");
     itemTitle.classList.add("menu-item-title");
     itemImgContainer.classList.add("menu-item-img-container");
     itemPrice.classList.add("menu-item-price");
@@ -97,9 +111,10 @@ export default function menu() {
     itemPrice.textContent = menuItem.cost;
 
     itemImgContainer.appendChild(itemImg);
+    menuContentContainer.appendChild(itemTitle);
+    menuContentContainer.appendChild(itemPrice);
     item.appendChild(itemImgContainer);
-    item.appendChild(itemTitle);
-    item.appendChild(itemPrice);
+    item.appendChild(menuContentContainer);
 
     if (menuItem.meal === "appetizer") {
       appetizers.appendChild(item);
@@ -114,11 +129,15 @@ export default function menu() {
 
   // add classes/IDs to DOM elements
   menuSection.setAttribute("id", "menu");
+  menuSection.classList.add("menu-section");
   menuH1.classList.add("menu-title");
   menuItemsContainer.classList.add("menu-items-container");
   appetizers.classList.add("menu-list", "appetizers");
   entres.classList.add("menu-list", "entres");
   desserts.classList.add("menu-list", "desserts");
+  appetizerTitle.classList.add("meal-title");
+  entreTitle.classList.add("meal-title");
+  dessertTitle.classList.add("meal-title");
 
   // append DOM elements
   menuItemsContainer.appendChild(appetizers);
