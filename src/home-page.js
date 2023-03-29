@@ -11,7 +11,7 @@ export default function homePage() {
 
   // give new DOM elements classes/IDs
   homeHeroMain.setAttribute("id", "home");
-  homeHeroMain.classList.add("home-section");
+  homeHeroMain.classList.add("home-section", "show", "hide");
   homeHeroSection.setAttribute("id", "hero");
   homeHeroH1.classList.add("hero-title");
   homeHeroImgContainer.classList.add("hero-img-container");

@@ -129,7 +129,7 @@ export default function menu() {
 
   // add classes/IDs to DOM elements
   menuSection.setAttribute("id", "menu");
-  menuSection.classList.add("menu-section");
+  menuSection.classList.add("menu-section", "show", "hide");
   menuH1.classList.add("menu-title");
   menuItemsContainer.classList.add("menu-items-container");
   appetizers.classList.add("menu-list", "appetizers");

@@ -1,3 +1,4 @@
+import contact from "./contact";
 import homePage from "./home-page";
 import menu from "./menu";
 import "./styles/styles.css";
@@ -40,21 +41,34 @@ const checkForActive = () => {
       link.textContent.toLowerCase() === "home" &&
       link.classList.contains("active")
     ) {
-      //
+      homeSection.classList.remove("hide");
+      menuSection.classList.add("hide");
+      contactSection.classList.add("hide");
     } else if (
       link.textContent.toLowerCase() === "menu" &&
       link.classList.contains("active")
     ) {
-      //
+      homeSection.classList.add("hide");
+      contactSection.classList.add("hide");
+      menuSection.classList.remove("hide");
+    } else if (
+      link.textContent.toLowerCase() === "contact" &&
+      link.classList.contains("active")
+    ) {
+      homeSection.classList.add("hide");
+      menuSection.classList.add("hide");
+      contactSection.classList.remove("hide");
     }
   });
 };
 
 homePage();
 menu();
+contact();
 
 const homeSection = document.querySelector("#home");
 const menuSection = document.querySelector("#menu");
+const contactSection = document.querySelector("#contact");
 
 checkForActive();
 
